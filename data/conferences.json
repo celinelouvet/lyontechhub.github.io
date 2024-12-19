@@ -33,5 +33,17 @@
       "JavaScript",
       "Éthique"
     ]
+  },
+  {
+    "image": "lyon-craft.svg",
+    "key": "lyon-craft",
+    "name": "Lyon Craft",
+    "url": "https://lyon-craft.fr/",
+    "shortDescription": "Lyon Craft c'est une journée pour échanger autour de la très large thématique qu'est le Software Craftsmanship. Un moment pour partager avec des actrices et acteurs locaux. L'occasion, aussi, de découvrir ce mouvement ou de perfectionner notre usage des approches qu'il plébiscite.",
+    "tags": [
+      "Craftsmanship",
+      "artisan",
+      "Coding Dojo"
+    ]
   }
 ]
