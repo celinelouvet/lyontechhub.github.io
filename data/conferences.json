@@ -1,5 +1,6 @@
 [
   {
+    "image": "afup-day.png",
     "key": "afup-day",
     "name": "AFUP Day",
     "url": "https://event.afup.org",
@@ -12,6 +13,7 @@
     ]
   },
   {
+    "image": "mixit.png",
     "key": "mixit",
     "name": "MiXiT",
     "url": "https://mixitconf.org/",
