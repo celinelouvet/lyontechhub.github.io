@@ -1,4 +1,4 @@
-function dynamicFilter(inputId) {
+const dynamicFilter = inputId => {
     // Declare variables
     var input, filter, items, i, txtValue;
     input = document.getElementById(inputId);
@@ -13,7 +13,7 @@ function dynamicFilter(inputId) {
             items[i].style.display = 'none';
         }
     }
-}
+};
 
 const toDescription = component => {
     const description = component.getFirstPropertyValue('description');
@@ -64,23 +64,117 @@ const filterForPeriod = (minDate, maxDate) => event => event.startDate >= minDat
 
 const listVEventComponents = raw => new ICAL.Component(ICAL.parse(raw)).getAllSubcomponents('vevent');
 
-const fetchEvents = (patterns, minDate, maxDate) => fetch('https://www.lyontechhub.org/Lyon-Tech-Hub-Calendar/calendar.ics').then((response) => response.text()).then((raw) =>
+const calendarICSUrl = 'https://www.lyontechhub.org/Lyon-Tech-Hub-Calendar/calendar.ics';
+
+const fetchEvents = (patterns, minDate, maxDate) => fetch(calendarICSUrl).then((response) => response.text()).then((raw) =>
     listVEventComponents(raw)
         .map(toEvent)
         .filter(filterForPeriod(minDate, maxDate))
         .filter(matchForPatterns(patterns)));
 
-function displayEvents(template, element, events) {
+const displayEvents = (template, element, events) => {
     if (element) {
         element.innerHTML = template({
-            paneTitle: element.getAttribute('data-pane-title')
-            , noEventCaption: element.getAttribute('data-no-event-caption')
-            , events: events
-            , hasEvents: events.length > 0
-            , noEvent: events.length == 0
+            paneTitle: element.getAttribute('data-pane-title'),
+            noEventCaption: element.getAttribute('data-no-event-caption'),
+            events: events,
+            hasEvents: events.length > 0,
+            noEvent: events.length == 0
         });
     }
-}
+};
+
+const loadCommunities = () =>
+    fetch('/communities.json')
+        .then((response) => response.text())
+        .then((body) => JSON.parse(body));
+
+const loadCalendar = async () => {
+    const communities = await loadCommunities();
+    const communitiesCalendars =
+        communities
+            .map((community) => {
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += (Math.floor(Math.random() * 100) % 16).toString(16);
+                }
+                console.log(community.key, color);
+                return { id: community.key, name: community.name, backgroundColor: color };
+            });
+
+    const Calendar = tui.Calendar;
+    const calendar = new Calendar('#calendar', {
+        usageStatistics: false,
+        defaultView: 'month',
+        isReadOnly: true,
+        useDetailPopup: true,
+        month: {
+            dayNames: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+            startDayOfWeek: 1,
+        },
+        timezone: {
+            zones: [
+                {
+                    timezoneName: 'Europe/Paris',
+                },
+            ],
+        },
+        calendars: [
+          {
+            id: 'default',
+            name: 'Default',
+            // backgroundColor: '#03bd9e',
+          },
+          ...communitiesCalendars
+        ],
+    });
+
+    fetch(calendarICSUrl)
+        .then((response) => response.text())
+        .then((raw) => listVEventComponents(raw).map(toEvent))
+        .then((items) => {
+            calendar.createEvents(
+                items.map((item) => {
+                    var title = item.title;
+                    var calendarId = 'default';
+                    const match = title.match(/^\[(.*?)\] (.+)$/);
+                    if (match) {
+                        for (var i = 0; i < communities.length; i++) {
+                            const patterns = communities[i].patternsGoogleCalendar;
+                            if (patterns) {
+                                for (var j = 0; j < patterns.length; j++) {
+                                    if (match[1].localeCompare(patterns[j], 'en', { sensitivity: 'base' }) === 0) {
+                                        // console.log(match[2], communities[i].key);
+                                        title = match[2];
+                                        calendarId = communities[i].key;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    return {
+                        calendarId: calendarId,
+                        id: item.id,
+                        title: title,
+                        body: item.description,
+                        start: item.startDate,
+                        end: item.endDate,
+                        location: item.location,
+                        raw: { url: item.url },
+                    }
+                })
+            );
+        })
+    ;
+
+    document.querySelector('#calendar').style.height = '800px';
+    document.querySelector('#calendarToday').onclick = () => { calendar.today(); };
+    document.querySelector('#calendarNext').onclick = () => { calendar.next(); };
+    document.querySelector('#calendarPrevious').onclick = () => { calendar.prev(); };
+
+};
 
 window.onload = () => {
     var communityDetailsEventsElement = document.getElementById('communityDetails');
@@ -115,5 +209,10 @@ window.onload = () => {
                     );
                 });
             });
+    }
+
+    var calendarElement = document.getElementById('calendar');
+    if (calendar) {
+        loadCalendar();
     }
 }
