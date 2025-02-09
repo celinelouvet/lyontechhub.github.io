@@ -25,5 +25,6 @@
       "tooltip": "Git Hub Organization",
       "url": "https://github.com/hckrs/hckrs.io"
     }
-  ]
+  ],
+  "patternsGoogleCalendar": []
 }

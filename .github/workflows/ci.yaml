@@ -12,8 +12,33 @@ permissions:
   id-token: write
 
 jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5.4.0
+        with:
+          python-version: "3.x"
+      - name: Install check-jsonschema
+        run: pip install check-jsonschema
+      - name: Validate Guide only Custom Formats
+        run: |
+          EXIT=0
+          for f in data/*; do
+            if [[ "$f" == "data/conferences.json" ]]; then
+              check-jsonschema -v --schemafile schema/conferences.json "data/conferences.json" || EXIT=1
+            else
+              check-jsonschema -v --schemafile schema/community.json "$f" || EXIT=1
+            fi
+          done
+
+          exit $EXIT
+
   build:
     runs-on: ubuntu-latest
+    needs: validate
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4

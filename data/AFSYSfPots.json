@@ -13,5 +13,6 @@
       "tooltip": "Web site",
       "url": "http://www.meetup.com/afsy-sfpot/"
     }
-  ]
+  ],
+  "patternsGoogleCalendar": []
 }
