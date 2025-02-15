@@ -7,37 +7,48 @@ const communities = getList();
 ---
 
 <Layout>
-	<main>
-        <div class="container-fluid">
-            <div class="container">
-                <h1>
-                    {communities.length} communautés diverses et variées regroupées dans Lyon Tech Hub<br />
-                    <small><a href="/about">Par ici pour référencer la votre !</a></small>
-                </h1>
-                Rechercher :
-                <input type="text" id="filterCommunities" onkeyup="dynamicFilter('filterCommunities')" />
-                <div class="row communitiesList">
-                    {communities
-                        .map(
-                            (community) => (
-                                <div class="col-sm-6 col-md-4 filterable" data-key={community.name}>
-                                    <div class="thumbnail">
-                                        <a href={`/community/` + community.key}>
-                                            <img src={`/imgs/communities/` + community.image}
-                                                    alt={community.name}
-                                                    onerror="this.onerror=null;this.src='/imgs/noLogo.png';" />
-                                        </a>
-
-                                        <div class="caption">
-                                            <h3>{community.name}</h3>
+  <main>
+    <div class="container is-fluid has-background-white">
+        <h1 class="title has-text-black">
+            {communities.length} communautés diverses et variées regroupées dans Lyon Tech Hub<br />
+            <small><a href="/about">Par ici pour référencer la votre !</a></small>
+        </h1>
+        <div class="field">
+          <label class="label has-text-black" for="filterCommunities">Rechercher</label>
+          <div class="control">
+            <input type="text" id="filterCommunities" onkeyup="dynamicFilter('filterCommunities')" />
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <div class="columns is-multiline communitiesList">
+            {communities
+                .map(
+                    (community) => (
+                        <div class="column is-half-tablet is-one-third-desktop filterable" data-key={community.name}>
+                            <div class="card has-background-white">
+                                <div class="card-image">
+                                    <a href={`/community/` + community.key}>
+                                        <img src={`/imgs/communities/` + community.image}
+                                             alt={community.name}
+                                             onerror="this.onerror=null;this.src='/imgs/noLogo.png';"
+                                        />
+                                    </a>
+                                </div>
+                                <div class="card-content">
+                                    <div class="media">
+                                        <div class="media-content">
+                                            <p class="title is-4 has-text-black">{community.name}</p>
                                         </div>
                                     </div>
                                 </div>
-                            )
-                        )
-                    }
-                </div>
-            </div>
+                            </div>
+                        </div>
+                    )
+                )
+            }
         </div>
-	</main>
+    </div>
+  </main>
 </Layout>

@@ -16,18 +16,19 @@ const { community } = Astro.props;
 ---
 
 <Layout>
-	<main>
-        <h1>
-            <img src={"/imgs/communities/" + community.image}
-                 onerror="this.onerror=null;this.src='/imgs/noLogo.png';"
-            />
-            {community.name}
-        </h1>
-        <div class="container-fluid community"
-             id="communityDetails"
-             data-patterns-google-calendar={JSON.stringify(community.patternsGoogleCalendar)}>
-            <div class="col-lg-4">
-                <h2>En bref...</h2>
+  <main>
+    <h1 class="title has-text-black">
+        <img src={"/imgs/communities/" + community.image}
+             onerror="this.onerror=null;this.src='/imgs/noLogo.png';"
+        />
+        {community.name}
+    </h1>
+    <div class="container is-fluid community"
+         id="communityDetails"
+         data-patterns-google-calendar={JSON.stringify(community.patternsGoogleCalendar)}>
+        <div class="columns">
+            <div class="column has-text-black">
+                <p class="title has-text-black">En bref...</p>
                 <p>{community.shortDescription}</p>
                 <ul class="socialLinks">
                     {community.socialLinks
@@ -41,16 +42,17 @@ const { community } = Astro.props;
                     }
                 </ul>
             </div>
-            <div class="col-lg-4"
+            <div class="column is-4"
                  id="upcomingEvents"
                  data-pane-title="A venir !"
                  data-no-event-caption="Pas d'événements dans les 4 prochains mois.">
             </div>
-            <div class="col-lg-4"
+            <div class="column is-4"
                  id="pastEvents"
                  data-pane-title="Ce que vous avez manqué..."
                  data-no-event-caption="Pas d'événements durant les 4 derniers mois.">
             </div>
         </div>
-	</main>
+    </div>
+  </main>
 </Layout>
