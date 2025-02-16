@@ -11,17 +11,17 @@
   ],
   "socialLinks": [
     {
-      "icon": "link",
+      "icon": "fas fa-link",
       "tooltip": "Web site",
       "url": "http://cocoaheads.fr/lyon/"
     },
     {
-      "icon": "twitter",
+      "icon": "fab fa-twitter",
       "tooltip": "Twitter",
       "url": "http://www.twitter.com/cocoaheadslyon"
     },
     {
-      "icon": "github",
+      "icon": "fab fa-github",
       "tooltip": "Git Hub Organization",
       "url": "https://github.com/cocoaheadslyon"
     }

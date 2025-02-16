@@ -12,12 +12,12 @@
   ],
   "socialLinks": [
     {
-      "icon": "link",
+      "icon": "fas fa-link",
       "tooltip": "Web site",
       "url": "http://www.meetup.com/Golang-Lyon/"
     },
     {
-      "icon": "twitter",
+      "icon": "fab fa-twitter",
       "tooltip": "Twitter",
       "url": "https://twitter.com/GolangLyon"
     }

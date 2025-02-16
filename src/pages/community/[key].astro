@@ -43,7 +43,7 @@ const { community } = Astro.props;
                     {community.socialLinks
                         .map(
                             (socialLink) => (
-                            <a href={socialLink.url} target="_blank" class={"m-2 fa fa-2x fa-" + socialLink.icon} title={socialLink.tooltip}></a>
+                            <a href={socialLink.url} target="_blank" class={"m-2 fa-2x " + socialLink.icon} title={socialLink.tooltip}></a>
                             )
                         )
                     }

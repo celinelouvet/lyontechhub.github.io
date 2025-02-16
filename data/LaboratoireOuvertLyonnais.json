@@ -22,27 +22,27 @@
   ],
   "socialLinks": [
     {
-      "icon": "link",
+      "icon": "fas fa-link",
       "tooltip": "Web site",
       "url": "https://labolyon.fr"
     },
     {
-      "icon": "meetup",
+      "icon": "fab fa-meetup",
       "tooltip": "Groupe Meetup",
       "url": "http://www.meetup.com/fr/Laboratoire-Ouvert-Lyonnais/"
     },
     {
-      "icon": "code-fork",
+      "icon": "fas fa-code-branch",
       "tooltip": "Git Forge",
       "url": "https://git.labolyon.fr/"
     },
     {
-      "icon": "weixin",
+      "icon": "fab fa-weixin",
       "tooltip": "IRC",
       "url": "irc://irc.geeknode.org/labolyon"
     },
     {
-      "icon": "twitter",
+      "icon": "fab fa-twitter",
       "tooltip": "Twitter",
       "url": "https://twitter.com/LaboLyon"
     }

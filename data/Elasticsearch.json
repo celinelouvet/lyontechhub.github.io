@@ -10,7 +10,7 @@
   ],
   "socialLinks": [
     {
-      "icon": "link",
+      "icon": "fas fa-link",
       "tooltip": "Web site",
       "url": "http://www.meetup.com/fr/ElasticFR/"
     }

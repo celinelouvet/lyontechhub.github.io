@@ -15,17 +15,17 @@
   ],
   "socialLinks": [
     {
-      "icon": "link",
+      "icon": "fas fa-link",
       "tooltip": "Web site",
       "url": "https://cafedevops.org"
     },
     {
-      "icon": "link",
+      "icon": "fas fa-link",
       "tooltip": "Groupe Meetup",
       "url": "https://www.meetup.com/fr-FR/cafe-devops-lyon/"
     },
     {
-      "icon": "twitter",
+      "icon": "fab fa-twitter",
       "tooltip": "Twitter",
       "url": "https://twitter.com/CafeDevOpsLyon"
     }

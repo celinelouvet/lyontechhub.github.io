@@ -31,7 +31,7 @@ const meetupUrlFor = description => {
     return undefined;
 };
 
-const toEvent = (component) => {
+const toEvent = (component, index) => {
     const description = toDescription(component);
     const startDate = component.getFirstPropertyValue('dtstart').toJSDate();
     const endDate = component.getFirstPropertyValue('dtend').toJSDate();
@@ -52,7 +52,8 @@ const toEvent = (component) => {
         startDateMonth: months[startDate.getMonth()],
         startDateDay: format(startDate.getDate()),
         startDateHour: formatHour(startDate),
-        endDateHour: formatHour(endDate)
+        endDateHour: formatHour(endDate),
+        isNotFirst: index > 0
     }
 }
 

@@ -20,7 +20,7 @@
   ],
   "socialLinks": [
     {
-      "icon": "link",
+      "icon": "fas fa-link",
       "tooltip": "Groupe Meetup",
       "url": "http://www.meetup.com/LAWS-Lyon-Amazon-Web-Services-User-Group/"
     }

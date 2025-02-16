@@ -9,19 +9,18 @@ const communities = getList();
 <Layout>
   <main>
     <div class="container is-fluid">
-        <h1 class="title">
-            {communities.length} communautés diverses et variées regroupées dans Lyon Tech Hub<br />
-            <small><a href="/about">Par ici pour référencer la votre !</a></small>
-        </h1>
+        <p class="title">
+          {communities.length} communautés diverses et variées regroupées dans Lyon Tech Hub
+        </p>
+        <p class="subtitle">
+          <a href="/about">Par ici pour référencer la votre !</a>
+        </p>
         <div class="field">
           <label class="label" for="filterCommunities">Rechercher</label>
           <div class="control">
             <input type="text" id="filterCommunities" onkeyup="dynamicFilter('filterCommunities')" />
           </div>
         </div>
-        <br />
-        <br />
-        <br />
         <div class="grid is-col-min-12">
             {communities
                 .map(
