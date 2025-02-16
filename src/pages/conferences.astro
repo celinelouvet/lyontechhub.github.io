@@ -18,38 +18,36 @@ const conferences: Conference[] = globFiles['../../data/conferences.json'].defau
   <main>
     <div class="container is-fluid">
         <div class="container">
-            <p class="title has-text-black">
+            <p class="title">
                 { conferences.length } conférences organisées par les communautés du LyonTechHub<br />
                 <small><a href="/about">Par ici pour référencer la votre !</a></small>
             </p>
             <div class="field">
-              <label class="label has-text-black" for="filterConferences">Rechercher</label>
+              <label class="label" for="filterConferences">Rechercher</label>
               <div class="control">
                 <input type="text" id="filterConferences" onkeyup="dynamicFilter('filterConferences')">
               </div>
             </div>
-            <br />
-            <br />
-            <div class="columns is-multiline communitiesList">
+            <div class="grid is-col-min-12">
                 {conferences
                     .map(
                         (conference) => (
-                            <div class="column is-12-mobile is-12-tablet filterable" data-key={conference.name}>
-                                <div class="card has-background-white">
-                                    <a href={conference.url} target="_blank">
-                                        <div class="card-image">
-                                            <figure>
-                                                <img src={"/imgs/conferences/" + conference.image} onerror="this.onerror=null;this.src='/imgs/noLogo.png';" />
-                                            </figure>
-                                        </div>
-                                    </a>
+                            <div class="cell filterable" data-key={conference.name}>
+                                <div class="card">
+                                    <header class="card-header">
+                                      <a href={conference.url}>
+                                        <p class="card-header-title">{conference.name}</p>
+                                      </a>
+                                    </header>
+                                    <div class="card-image p-6">
+                                      <a href={conference.url} target="_blank">
+                                        <figure class="image">
+                                          <img src={"/imgs/conferences/" + conference.image} onerror="this.onerror=null;this.src='/imgs/noLogo.png';" />
+                                        </figure>
+                                      </a>
+                                    </div>
                                     <div class="card-content">
-                                        <div class="media">
-                                            <div class="media-content">
-                                                <p class="title is-4 has-text-black">{conference.name}</p>
-                                            </div>
-                                        </div>
-                                        <div class="content has-text-black">
+                                        <div class="content">
                                             {conference.shortDescription}
                                         </div>
                                     </div>

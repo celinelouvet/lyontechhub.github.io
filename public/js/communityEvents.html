@@ -1,31 +1,28 @@
-<p class="title has-text-black">{{ paneTitle }}</p>
-<ul class="events has-text-black">
+<div class="card">
+  <div class="card-content">
+    <p class="title">{{ paneTitle }}</p>
     {{#if noEvent}}
-    <li>{{ noEventCaption }}</li>
+      <p class="title is-6">
+        {{ noEventCaption }}
+      </p>
     {{/if}}
     {{#if hasEvents}}
     {{#each events}}
-    <li>
-        <div>
-            <div>
-                <div>{{ startDateDay }}</div>
-                <div>{{ startDateMonth }}</div>
-            </div>
-            <div>
-                <div class="event-title">
-                  {{#if hasUrl}}
-                    <a href="{{url}}" target="_blank">{{ title }} <span class="fa fa-external-link" title="Lien vers l'événement dans Google Calendar"></span></a>
-                  {{else}}
-                    {{ title }}
-                  {{/if}}
-                </div>
-                <div>De {{ startDateHour }} à {{ endDateHour }} - {{ location }}</div>
-            </div>
-        </div>
-        {{#if hasDescription}}
-        <div class="description">{{ description }}</div>
+      <p class="title is-6">
+        {{ startDateDay }} {{ startDateMonth }}
+      </p>
+      <p class="title is-5">
+        {{#if hasUrl}}
+          <a href="{{url}}" target="_blank">{{ title }} <span class="fa fa-external-link" title="Lien vers l'événement dans Google Calendar"></span></a>
+        {{else}}
+          {{ title }}
         {{/if}}
-    </li>
+      </p>
+      <p class="subtitle is-5">De {{ startDateHour }} à {{ endDateHour }} - {{ location }}</p>
+      {{#if hasDescription}}
+      <p class="description">{{ description }}</p>
+      {{/if}}
     {{/each}}
     {{/if}}
-</ul>
+  </div>
+</div>

@@ -98,7 +98,6 @@ const loadCalendar = async () => {
                 for (var i = 0; i < 6; i++) {
                     color += (Math.floor(Math.random() * 100) % 16).toString(16);
                 }
-                console.log(community.key, color);
                 return { id: community.key, name: community.name, backgroundColor: color };
             });
 
@@ -144,7 +143,6 @@ const loadCalendar = async () => {
                             if (patterns) {
                                 for (var j = 0; j < patterns.length; j++) {
                                     if (match[1].localeCompare(patterns[j], 'en', { sensitivity: 'base' }) === 0) {
-                                        // console.log(match[2], communities[i].key);
                                         title = match[2];
                                         calendarId = communities[i].key;
                                         break;
@@ -212,7 +210,7 @@ window.onload = () => {
     }
 
     var calendarElement = document.getElementById('calendar');
-    if (calendar) {
+    if (calendarElement) {
         loadCalendar();
     }
 }
