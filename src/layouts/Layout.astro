@@ -21,10 +21,10 @@ interface Props {
     <script src="/js/toastui-calendar.min.js" is:inline></script>
     <script src="/js/main.js" is:inline></script>
 </head>
-<body>
+<body class="has-navbar-fixed-top has-navbar-fixed-bottom">
 <div id="wrap">
     <header>
-        <nav class="navbar navbar-inverse navbar-fixed-top has-text-white has-background-black" role="navigation">
+        <nav class="navbar is-fixed-top is-dark" role="navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" href="/">
                     <svg
@@ -90,25 +90,33 @@ interface Props {
     <div id="push">
     </div>
 </div>
-<footer class="footer has-text-white has-background-black">
-    <div class="has-text-centered">
-        <div class="columns">
-          <div class="column is-3"><h3>Lyon Tech Hub</h3></div>
-          <div class="column is-3">
-              <h3>
-                  <small><a href="/about">Rejoignez-nous</a></small>
-              </h3>
+<footer>
+    <nav class="navbar is-fixed-bottom is-dark" role="navigation">
+        <div class="navbar-menu">
+          <div class="navbar-start">
+              <a class="navbar-item" href="/">Lyon Tech Hub</a>
+            <a class="navbar-item" href="/about">Rejoignez-nous</a>
           </div>
-          <div class="column is-6">
-              <a href="https://slack.lyontechhub.org/" class="fab fa-slack fa-3x" title="Salle Slack"></a>
-              <a href="mailto:contact@lyontechhub.org" class="fa fa-envelope fa-3x" title="Mail de contact"></a>
-              <a href="https://groups.google.com/forum/#!forum/lyontechhub" class="fa fa-comments fa-3x"
-                 title="Liste de discussion"></a>
-              <a href="https://x.com/lyontechhub" class="fab fa-twitter fa-3x" title="X"></a>
-              <a href="https://github.com/lyontechhub" class="fab fa-github fa-3x" title="GitHub"></a>
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://slack.lyontechhub.org/" title="Salle Slack">
+              <span class="icon"><i class="fab fa-slack fa-2x"></i></span>
+            </a>
+            <a class="navbar-item" href="mailto:contact@lyontechhub.org" title="Mail de contact">
+              <span class="icon"><i class="fa fa-envelope fa-2x"></i></span>
+            </a>
+            <a class="navbar-item" href="https://groups.google.com/forum/#!forum/lyontechhub" title="Liste de discussion">
+              <span class="icon"><i class="fa fa-comments fa-2x"></i></span>
+            </a>
+            <a class="navbar-item" href="https://x.com/lyontechhub" title="X">
+              <span class="icon"><i class="fab fa-twitter fa-2x"></i></span>
+            </a>
+            <a class="navbar-item" href="https://github.com/lyontechhub" title="GitHub">
+              <span class="icon"><i class="fab fa-github fa-2x"></i></span>
+            </a>
           </div>
         </div>
-    </div>
+      </div>
+    </nav>
 </footer>
 </body>
 </html>
