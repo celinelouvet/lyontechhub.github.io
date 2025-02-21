@@ -6,3 +6,7 @@
   display: grid;
   height: 100%;
 }
+
+#calendar {
+  height: 800px;
+}

@@ -168,7 +168,6 @@ const loadCalendar = async () => {
         })
     ;
 
-    document.querySelector('#calendar').style.height = '800px';
     document.querySelector('#calendarToday').onclick = () => { calendar.today(); };
     document.querySelector('#calendarNext').onclick = () => { calendar.next(); };
     document.querySelector('#calendarPrevious').onclick = () => { calendar.prev(); };
