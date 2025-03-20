@@ -1,0 +1,26 @@
+{
+  "name": "IT WOMEN TALK",
+  "image": "ITWomenTalk.png",
+  "shortDescription": "Organisé par Yeeso. Met en avant l’expertise féminine et le réseautage professionnel. 100% conférencières avec un public mixte avec 2 sujets par événement, un sujet tech (dev, cloud, data etc.) et un sujet social tech (sensibilisation, inclusion, etc.).",
+  "tags": [
+    "Yeeso",
+    "ITWomen",
+    "Tech",
+    "Social tech",
+    "Conférencières",
+    "Mixité",
+    "Mentorat"
+  ],
+  "patternsGoogleCalendar": ["ITWomen"],
+  "socialLinks": [
+    {
+      "url": "https://www.meetup.com/fr-fr/it-woman-by-yeeso/"
+    },
+    {
+      "url": "https://yeeso.fr"
+    },
+    {
+      "url": "https://www.linkedin.com/company/it-woman"
+    }
+  ]
+}
